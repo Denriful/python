@@ -1,9 +1,11 @@
 def search4vowels ():
 # print vowesl in provided word
+    """ another type of comment. 
+        multistring
+    """
+    vowels = set('aeiou')
 
-    vowels = {"a","e","i","o","u"}
-
-    word = input("Provide a word to search for vowels: ")
+    word = input('Provide a word to search for vowels: ')
 
     found = vowels.intersection(set(word))
 
