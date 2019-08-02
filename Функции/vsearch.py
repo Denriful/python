@@ -1,4 +1,4 @@
-def search4vowels(word):
+def search4vowels(word:str) -> set:
 
     """ This func search for vowels in word."""
 
