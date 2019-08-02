@@ -18,8 +18,8 @@ def search4vowels(phrase:str) -> set:
     #return bool(found)
 
 
-def search4letters(phrase:str, letters:str) -> set:
+def search4letters(phrase:str, letters:str='aeiou') -> set:
 
-""" Return sets of letters in phrase """
+    """ Return sets of letters in phrase """
 
     return set(letters).intersection(set(phrase))
