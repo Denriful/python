@@ -19,4 +19,7 @@ def search4vowels(phrase:str) -> set:
 
 
 def search4letters(phrase:str, letters:str) -> set:
+
+""" Return sets of letters in phrase """
+
     return set(letters).intersection(set(phrase))
