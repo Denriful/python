@@ -1,4 +1,4 @@
-def search4vowels(word:str) -> set:
+def search4vowels(phrase:str) -> set:
 
     """ This func search for vowels in word."""
 
@@ -10,7 +10,7 @@ def search4vowels(word:str) -> set:
     #word = input('Provide a word to search for vowels: ')
 
     #found = vowels.intersection(set(word))
-    return vowels.intersection(set(word))
+    return vowels.intersection(set(phrase))
 
     #for vowel in found:
     #    print(vowel)
