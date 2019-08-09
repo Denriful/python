@@ -1,11 +1,33 @@
 language: python
 python:
-  - "3.6"
+  - '3.5'
+  - '3.6'
+matrix:
+  include:
+    - python: 3.7
+      dist: xenial
+      sudo: true
+before_install:
+#  - pip install -U pip
+#  - pip install -U pytest
+#  - pip install codecov
+  # required for the pip only-binary fkag
+#  - pip install --upgrade pip setuptools wheel
+  # we don't want to compile sources for the following packages:
+#  - pip install nltk
+#  - pip install --only-binary=numpy numpy
+#  - pip install --only-binary=scipy scipy
+#  - pip install --only-binary=pandas pandas
+#  - pip install --only-binary=scikit-learn scikit-learn
 cache: pip
 #install:
 #  - pip install -r requirements.txt
+#  - pip install ".[test,sklearn,nltk]"
 script:
   - python beer.py
+#  pytest --cov=pdpipe
 branches:
   only:
     - master
+after_success:
+  - codecov
