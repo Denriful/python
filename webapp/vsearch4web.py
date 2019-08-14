@@ -12,7 +12,7 @@ def hello() -> str:
 
 #letters = search4letters('Life, the Universe, and Everything!', 'eiour')
 
-@app.route('/search4')
+@app.route('/search4', methods=['POST'])
 def do_search() -> str:
     return str(search4letters('Life, the Universe, and Everything!', 'eiour'))
 
