@@ -14,7 +14,10 @@ def hello() -> str:
 
 @app.route('/search4', methods=['POST'])
 def do_search() -> str:
-    return str(search4letters('Life, the Universe, and Everything!', 'eiour'))
+    phrase = request.form['phrase']
+    letters = request.form['letters']
+    return str(search4letters(phrase, letters))
+    #return str(search4letters('Life, the Universe, and Everything!', 'eiour'))
 
 @app.route('/entry')
 def entry_page() -> 'html':
