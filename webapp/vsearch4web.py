@@ -1,14 +1,13 @@
 from flask import Flask
 
-from flask import render_template, request, redirect
+from flask import render_template, request
 
 from vsearch import search4letters
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello() -> '302':
-    return redirect('/entry')
+
+
 
 #letters = search4letters('Life, the Universe, and Everything!', 'eiour')
 
@@ -27,6 +26,7 @@ def do_search() -> 'html':
     #return str(search4letters(phrase, letters))
     #return str(search4letters('Life, the Universe, and Everything!', 'eiour'))
 
+@app.route('/')
 @app.route('/entry')
 def entry_page() -> 'html':
     return render_template('entry.html', 
