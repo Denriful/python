@@ -32,9 +32,5 @@ def entry_page() -> 'html':
     return render_template('entry.html', 
         the_title='Welcome to search4letters on the web!')
 
-<<<<<<< HEAD
 if __name__ == "__main__":    
-=======
-if __name__ = if __name__ == "__main__":    
->>>>>>> 6719950e9751e7e0d0cae90fb370bab107e9bca8
     app.run(debug=True)
