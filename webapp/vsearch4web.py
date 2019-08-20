@@ -2,12 +2,12 @@ from flask import Flask
 
 from flask import render_template, request
 
-from vsearch import search4letters
-
+""" relative import for 
+support Heroku
+"""
+from .vsearch import search4letters
+#from .vsearch import search4letters
 app = Flask(__name__)
-
-
-
 
 #letters = search4letters('Life, the Universe, and Everything!', 'eiour')
 
