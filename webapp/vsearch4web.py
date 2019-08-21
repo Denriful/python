@@ -5,7 +5,7 @@ from flask import render_template, request
 """ relative import for 
 support Heroku
 """
-from .vsearch import search4letters
+from vsearch import search4letters
 #from .vsearch import search4letters
 app = Flask(__name__)
 
