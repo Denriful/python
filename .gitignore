@@ -2,3 +2,4 @@ print_package_path.py
 env
 __pycache__
 *.pyc
+vsearch.log
