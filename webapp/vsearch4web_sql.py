@@ -6,15 +6,6 @@ from vsearch import search4letters
 
 import mysql.connector
 
-dbconfig = { 'host': '127.0.0.1', 
-             'user': 'vsearch', 
-             'password': '34512',
-             'database': 'vsearhlogDB', }
-
-conn = mysql.connector.connect(**dbconfig)
-
-cursor = conn.cursor()
-
 app = Flask(__name__)
 
 @app.route('/search4', methods=['POST'])
@@ -40,6 +31,15 @@ def entry_page():
         the_title='Welcome to search4letters on the web!')
 
 def log_request(req: 'flask_request', res: str) -> None:
+    
+    dbconfig = { 'host': '127.0.0.1', 
+        'user': 'vsearch', 
+        'password': '34512',
+        'database': 'vsearhlogDB', }
+
+    conn = mysql.connector.connect(**dbconfig)
+
+    cursor = conn.cursor()
     
     _SQL = '''insert into log
         (phrase, letters, ip, browser_string, results)
