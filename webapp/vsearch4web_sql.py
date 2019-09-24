@@ -6,7 +6,7 @@ from vsearch import search4letters
 
 #import mysql.connector
 
-from DBcm import UseDatabase
+from DBcm import UseDatabase, ConnectionError
 
 from checker import check_logged_in
 
@@ -62,20 +62,27 @@ def log_request(req: 'flask_request', res: str) -> None:
 
  #   cursor = conn.cursor()
     #sleep(15)
-    #raise
-    with UseDatabase(app.config['dbconfig']) as cursor:
+    
+    #raise ConnectionError()
+    try:
+        with UseDatabase(app.config['dbconfig']) as cursor:
 
-        _SQL = '''insert into log
-            (phrase, letters, ip, browser_string, results)
-            values
-            (%s, %s, %s, %s, %s)'''
+            _SQL = '''insert into log
+                (phrase, letters, ip, browser_string, results)
+                values
+                (%s, %s, %s, %s, %s)'''
 
-        cursor.execute(_SQL, (req.form['phrase'],
-            req.form['letters'], 
-            req.remote_addr,
-            req.user_agent.browser,
-            res, ))
-        
+            cursor.execute(_SQL, (req.form['phrase'],
+                req.form['letters'], 
+                req.remote_addr,
+                req.user_agent.browser,
+                res, ))
+    except ConnectionError as err:
+         print('Is your DB switched on? :', str(err))   
+    except Exception as err:
+        print('Something went wrong: ', str(err))  
+        return 'Error'
+
  #   conn.commit()
     
    # _SQL = '''select * from log'''
