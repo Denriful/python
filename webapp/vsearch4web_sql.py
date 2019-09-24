@@ -10,6 +10,8 @@ from DBcm import UseDatabase
 
 from checker import check_logged_in
 
+from time import sleep
+
 app = Flask(__name__)
 
 app.secret_key = 'YouWillNeverGuess2'
@@ -59,7 +61,8 @@ def log_request(req: 'flask_request', res: str) -> None:
  #   conn = mysql.connector.connect(**dbconfig)
 
  #   cursor = conn.cursor()
-    
+    #sleep(15)
+    #raise
     with UseDatabase(app.config['dbconfig']) as cursor:
 
         _SQL = '''insert into log
