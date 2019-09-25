@@ -6,7 +6,7 @@ from vsearch import search4letters
 
 #import mysql.connector
 
-from DBcm import UseDatabase, ConnectionError
+from DBcm import UseDatabase, ConnectionError, CredentialError, SQLError
 
 from checker import check_logged_in
 
@@ -78,7 +78,11 @@ def log_request(req: 'flask_request', res: str) -> None:
                 req.user_agent.browser,
                 res, ))
     except ConnectionError as err:
-         print('Is your DB switched on? :', str(err))   
+         print('Is your DB switched on?:', str(err))  
+    except CredentialError as err:
+         print('User-id/Password issues. Error:', str(err)) 
+    except SQLError as err:
+         print('Is your query correct? Error:', str(err))       
     except Exception as err:
         print('Something went wrong: ', str(err))  
         return 'Error'
