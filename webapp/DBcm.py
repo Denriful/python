@@ -5,6 +5,12 @@ import mysql.connector
 class ConnectionError(Exception):
     pass
 
+class CredentialError(Exception):
+    pass
+
+class SQLError(Exception):
+    pass
+
 class UseDatabase:
 
     def __init__(self, config: dict) -> None:
