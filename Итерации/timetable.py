@@ -20,9 +20,13 @@ print()
 flights2 = {}
 
 for k,v in flights.items():
-    ampm = convert2ampm(k)
-    title = str(v).title()
-    flights2.setdefault(ampm,title)
+    #ampm = convert2ampm(k)
+    #title = str(v).title()
+    #flights2.setdefault(ampm,title)
+    
+    #flights2.setdefault(convert2ampm(k),v.title())
+    flights2[convert2ampm(k)] = v.title()
+
     
 
 pprint.pprint(flights2)
